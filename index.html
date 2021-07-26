@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/bootstrap.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <link rel="manifest" href="dist/manifest.json">
   <!-- <script src='assets/js/vendor/jQuery.js'></script>
   <script src='assets/js/vendor/bootstrap.js'></script>
   <script src='./dist/script.min.js'></script> -->
@@ -170,4 +170,16 @@
       <div class="footer-copyright text-center py-3 text-white">© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.</div>        
     </footer>
 </body>
+
+<script>
+  //immediately invoked function expressions - () at end of function executes function once created
+  (function() {
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(() => console.log('service worker registered successfully'))
+          .catch(err => console.log('service worker registration failed:', err));
+    }
+  })();
+</script>
+
 </html>
